@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static' , filename='css/register.css')}}">
+    <link rel="stylesheet" href="{{url_for('static' , filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static' , filename='css/font-awesome.min.css')}}">
+    <script src="https://kit.fontawesome.com/a1aef19155.js" crossorigin="anonymous"></script>
+
+
+
+    <title>Register</title>
+</head>
+<body>
+    <!-- start my content -->
+<div class="container">
+
+    <div class="title">Sign Up</div>
+    <form action="{{url_for('auth.register')}}" method="POST" id="myform" >
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Username</span>
+                <input type="text" class="form-control" id="username" name="username" placeholder="@Username" aria-label="Username"
+                    aria-describedby="basic-addon1">
+                <p id="usererr1"></p>
+                <p style="color: red;">{{errorusername}}</p>
+                <h6 style="color: red;">{{userxists}}</h6>
+
+            </div>
+            <div class="input-box">
+                <span class="details">First Name</span>
+                <input type="text" placeholder="Enter Your fisrt Name" name="firstname" id="name">
+                <p id="nameerr"></p>
+                <h6>{{errorfname}}</h6>
+            </div>
+            <div class="input-box">
+                <span class="details">last Name</span>
+                <input type="text" placeholder="Enter Your last Name" name="lastname" id="user">
+                <p id="usererr"></p>
+                <h6 style="color: red;">{{errorlastname}}</h6>
+            </div>
+            <!-- <div class="input-box dropdown">
+                <span class="details">Specialization</span>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Select your Specialization.
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">obstetrics and gynecology</a></li>
+                    <li><a class="dropdown-item" href="#">poultry</a></li>
+                    <li><a class="dropdown-item" href="#">equine</a></li>
+                    <li><a class="dropdown-item" href="#">ruminant</a></li>
+                    <li><a class="dropdown-item" href="#">fishes and aquatics</a></li>
+                </ul>
+            </div> -->
+            <div class="input-box">
+                <span class="details">Email</span>
+                <input type="text" placeholder="Enter Your Email" name="email" id="email">
+                <p id="emailerr"></p>
+                <h6 style="color: red;">{{erroremail}}</h6>
+                <h6 style="color: red;">{{emailexists}}</h6>
+            </div>
+            <!-- <div class="input-box">
+                <span class="details">Phone Number</span>
+                <input type="text" placeholder="Enter Your egyption PhoneNumber" id="phone">
+                <p id="phoneerr"></p>
+            </div> -->
+            <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" name="password" placeholder="Enter Your Password" id="pass1">
+                <p id="pass1err"></p>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Confirm Password</span>
+                <input type="password" name="confirm" placeholder="Confirm Your Password" id="pass2">
+                <p id="pass2err"></p>
+                <h6>{{notequal}}</h6>
+            </div>
+
+
+            <!-- <div class="my-2">
+                <span class="details">upload a profile pic.</span>
+                <input type="file" placeholder="upload" name="image" id="file" accept="image/png, image/jpeg , image/jpg , image/peng , image/gif">
+                <p id="fileerr"></p>
+            </div> -->
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="mt-3">
+            <h5>* optional</h5>
+
+
+        </div>
+
+
+
+        <div class="mb-3">
+            <label for="bdate" class="form-label label1">Birth Date</label>
+            <input type="date" class="form-control" name="bdate" id="bdate" aria-describedby="emailHelp"
+                placeholder=" Birth Date">
+
+        </div>
+
+
+        <div class="mb-3">
+            <label for="country" class="form-label label1">Country</label>
+            <input type="text" class="form-control" name="country" id="Country" aria-describedby="emailHelp" placeholder="Country">
+
+        </div>
+
+        <div class="mb-3">
+            <label for="address" class="form-label label1">Address.</label>
+            <input type="text" class="form-control" name="address" id="address" aria-describedby="emailHelp"
+                placeholder="add Address.">
+
+        </div>
+
+
+
+        <!-- <div class="mb-3">
+            <label for="faceLink" class="form-label label1">Facebook Link</label>
+            <input type="url" class="form-control" id="faceLink" aria-describedby="emailHelp"
+                placeholder="http//www.Facebook.com/fn.page">
+
+        </div> -->
+
+
+
+        <div class="button">
+            <input type="submit" value="Register" id="submitbtn">
+        </div>
+
+
+        <p id="submiterror"></p>
+    </form>
+</div>
+    
+
+<script src="{{url_for('static', filename='js/register.js')}}"></script>
+
+</body>
+</html>
+
+
+
+
